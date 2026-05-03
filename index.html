@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenidos</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
 </head>
 <body>
@@ -14,7 +15,7 @@
 
         <div style="background-color: rgb(230, 171, 255); width: 300px; height: 300px; display: flex; justify-content: center; align-items: center;">
             <h1>REgistro de Usuarios</h1>
-            <form action="">
+            <form action="registro">
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre">
                 <br>
@@ -31,7 +32,6 @@
             </form>
         </div>
 
-     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const { createClient } = supabase
 
@@ -40,15 +40,15 @@
 
     const supabase = createClient(NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)
 
-    document.getElementById('miForm').addEventListener('submit', async (e) => {
+    document.getElementById('registro').addEventListener('submit', async (e) => {
       e.preventDefault()  // evita que la página se recargue
 
-      const nombre   = document.getElementById('nombre').value
-      const apellido = document.getElementById('apellido').value
-      const email    = document.getElementById('email').value
-      const password = document.getElementById('password').value
+      const nombre   = document.getElementById('nombre').value.trim();
+      const apellido = document.getElementById('apellido').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-      const { data, error } = await db
+      const { data, error } = await supabase
         .from('usuarios')
         .insert({ nombre, apellido, email, password })
 
@@ -57,7 +57,7 @@
         document.getElementById('mensaje').textContent = '❌ Error al guardar'
       } else {
         document.getElementById('mensaje').textContent = '✅ Usuario guardado!'
-        document.getElementById('miForm').reset()  // limpia el form
+        document.getElementById('registro').reset()  // limpia el form
       }
     })
   </script>
