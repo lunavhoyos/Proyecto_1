@@ -171,11 +171,11 @@
                 console.error('Mensaje:', error.message)
 
                 if (error.code === '23505') {
-                    document.getElementById('mensaje').textContent = '❌ Ese email ya está registrado'
+                    document.getElementById('mensaje').textContent = 'Ese email ya está registrado'
                 } else if (error.code === '42501') {
-                    document.getElementById('mensaje').textContent = '❌ Sin permisos (revisa RLS en Supabase)'
+                    document.getElementById('mensaje').textContent = 'Sin permisos (revisa RLS en Supabase)'
                 } else {
-                    document.getElementById('mensaje').textContent = `❌ Error: ${error.message}`
+                    document.getElementById('mensaje').textContent = ` Error: ${error.message}`
                 }
             } else {
                 document.getElementById('mensaje').textContent = '✅ Usuario guardado!'
