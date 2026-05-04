@@ -8,80 +8,130 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
     body {
-        background-color: rgb(223, 198, 255);
-    }
-    div{
-        background-color: rgb(192, 137, 255);
-        margin-left: 400px;
-        margin-right: 400px;
-        text-align: center;
+        background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+        min-height: 100vh;
+        display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 20px;
+        color: #4c1d95;
     }
-    form{
-        background-color: rgb(220, 174, 252);
-        margin-left: 400px;
-        margin-right: 400px;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
+
+    /* Contenedor del formulario */
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.1);
+        width: 100%;
+        max-width: 400px;
+        margin: 20px;
     }
-    input{
-        margin-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
+
+    h1 {
         text-align: center;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #5b21b6;
     }
-    label{
-        margin-bottom: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
-    button{
-        margin-bottom: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
-    p{
-        margin-bottom: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
+
+    label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #6d28d9;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #ddd6fe;
+        border-radius: 12px;
+        font-size: 14px;
+        color: #4c1d95;
+        background-color: #fcfaff;
+        transition: all 0.3s ease;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #8b5cf6;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    }
+
+    button {
+        margin-top: 10px;
+        background-color: #8b5cf6;
+        color: white;
+        padding: 14px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+        background-color: #7c3aed;
+    }
+
+    button:active {
+        transform: scale(0.98);
+    }
+
+    p#mensaje {
         text-align: center;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        min-height: 20px;
     }
 </style>
 <body>
-    <div>
+    <div class="form-container">
         <h1>Registro de Usuarios</h1>
 
         <form id="registro">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre"><br>
+            <div class="input-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre">
+            </div>
 
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido"><br>
+            <div class="input-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido">
+            </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email"><br>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email">
+            </div>
 
-            <label for="password">Contraseña</label>
-            <input type="password" id="password"><br>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password">
+            </div>
 
             <button type="submit">Guardar</button>
             <p id="mensaje"></p>
