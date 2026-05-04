@@ -5,12 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenidos</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin-top: 20px;
+            justify-content: center;
+            background-color: rgb(216, 126, 255);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+        }
+        #mensaje {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1 style="color: rgb(0, 0, 0);">Hola Mundo</h1>
-    <h2 style="color: blueviolet;">Segundo despliegue</h2>
+    <h1>Hola Mundo</h1>
+    <h2>Segundo despliegue</h2>
 
-    <div style="background-color: rgb(230, 171, 255); width: 300px; height: auto; padding: 20px;">
+    <div>
         <h1>Registro de Usuarios</h1>
         <form id="registro">
             <label for="nombre">Nombre</label>
